@@ -24,15 +24,35 @@ else
 	mid = c
 end
 
-if max >= (mid + min)
-	puts "It isn't a triangle"
-elsif (max*max) > (mid*mid + min*min)
-	puts "It is an obtuse triangle"
-elsif (max*max) == (mid*mid + min*min)
-	puts "It is a right triangle"
-else
-	puts "It is an acute triangle"
+
+cnt = 0
+if max == mid
+	cnt = cnt + 1
 end
+if min == mid
+	cnt = cnt + 1
+end
+
+if max >= (mid + min)
+	type1 = " not a"
+	cnt = 0
+elsif (max*max) > (mid*mid + min*min)
+	type1 = " an obtuse"
+elsif (max*max) == (mid*mid + min*min)
+	type1 = " a right"
+else
+	type1 = " an acute"
+end
+
+if cnt==0
+	type2 = " "
+elsif cnt==1
+	type2 = " isosceles "
+else
+	type2 = " equilateral "
+end
+
+puts "It is#{type1}#{type2}triangle"
 
 while 1
 end
